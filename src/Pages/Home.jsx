@@ -13,7 +13,7 @@ export default function Home() {
 
   const validate = () => {
     const newErrors = {};
-    if (!inTime) newErrors.inTime = "Required";
+    if (!inTime) newErrors.inTime = "Required in time";
     if (!breakStart) newErrors.breakStart = "Required";
     if (!breakEnd) newErrors.breakEnd = "Required";
     setErrors(newErrors);
