@@ -32,3 +32,7 @@ body {
   margin: auto;
   align-items: center;
 }
+
+.asterisk {
+  color: #dc2626;
+}

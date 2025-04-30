@@ -9,17 +9,24 @@ export default function Home() {
   const [breakStart, setBreakStart] = useState("");
   const [breakEnd, setBreakEnd] = useState("");
   const [result, setResult] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const newErrors = {};
+    if (!inTime) newErrors.inTime = "Required";
+    if (!breakStart) newErrors.breakStart = "Required";
+    if (!breakEnd) newErrors.breakEnd = "Required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const calculateEndTime = () => {
+    if (!validate()) return;
+
     const parseTime = (timeStr) => {
       const [hours, minutes] = timeStr.split(":").map(Number);
       return new Date(0, 0, 0, hours, minutes);
     };
-
-    if (!inTime || !breakStart || !breakEnd) {
-      setResult("Please fill all fields.");
-      return;
-    }
 
     const inDate = parseTime(inTime);
     const breakStartDate = parseTime(breakStart);
@@ -42,24 +49,36 @@ export default function Home() {
       <Card>
         <CardContent>
           <h2 className="title">Work Hours Calculator</h2>
-          <label className="label">Morning check in time</label>
+          <label className="label">
+            Morning check in time <span className="asterisk">*</span>
+          </label>
           <Input
             type="time"
             value={inTime}
             onChange={(e) => setInTime(e.target.value)}
+            error={errors.inTime}
           />
-          <label className="label">Break start time</label>
+
+          <label className="label">
+            Break start time <span className="asterisk">*</span>
+          </label>
           <Input
             type="time"
             value={breakStart}
             onChange={(e) => setBreakStart(e.target.value)}
+            error={errors.breakStart}
           />
-          <label className="label">Break end time</label>
+
+          <label className="label">
+            Break end time <span className="asterisk">*</span>
+          </label>
           <Input
             type="time"
             value={breakEnd}
             onChange={(e) => setBreakEnd(e.target.value)}
+            error={errors.breakEnd}
           />
+
           <Button onClick={calculateEndTime}>Calculate</Button>
           {result && <p className="result">{result}</p>}
         </CardContent>
