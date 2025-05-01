@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to top right, #e0f7fa, #bbdefb);
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -14,6 +14,27 @@ body {
   color: #1e40af;
   font-weight: bold;
   margin-bottom: 20px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+.label-intime {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+}
+
+.asterisk {
+  color: #dc2626;
 }
 
 .result {
@@ -29,10 +50,42 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  margin: auto;
   align-items: center;
+  flex-direction: column;
+  gap: 33px;
 }
 
-.asterisk {
-  color: #dc2626;
+.break-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.break-input-pair {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.round-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.round-button.add {
+  background: #2563eb;
+  color: white;
+}
+
+.round-button.delete {
+  background: #dc2626;
+  color: white;
 }
