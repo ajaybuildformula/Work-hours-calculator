@@ -1,25 +1,26 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4);
+  background-image: url("../assets/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .title {
   font-size: 28px;
   text-align: center;
-  color: #1e40af;
+  color: white;
   font-weight: bold;
   margin-bottom: 20px;
 }
-
 .label {
   font-size: 16px;
   font-weight: 500;
-  color: #1f2937;
+  color: white;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -28,15 +29,13 @@ body {
 .label-intime {
   font-size: 16px;
   font-weight: 500;
-  color: #1f2937;
+  color: white;
   display: flex;
   align-items: center;
 }
-
 .asterisk {
   color: #dc2626;
 }
-
 .result {
   color: #15803d;
   font-size: 18px;
@@ -44,7 +43,6 @@ body {
   text-align: center;
   margin-top: 12px;
 }
-
 .home-wrapper {
   width: 100%;
   height: 100vh;
@@ -54,19 +52,16 @@ body {
   flex-direction: column;
   gap: 33px;
 }
-
 .break-row {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
 .break-input-pair {
   display: flex;
   gap: 10px;
   align-items: flex-end;
 }
-
 .round-button {
   width: 32px;
   height: 32px;
@@ -79,12 +74,10 @@ body {
   justify-content: center;
   margin-bottom: 4px;
 }
-
 .round-button.add {
-  background: #2563eb;
+  background: #219ebc;
   color: white;
 }
-
 .round-button.delete {
   background: #dc2626;
   color: white;
