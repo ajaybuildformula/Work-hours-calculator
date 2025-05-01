@@ -19,3 +19,15 @@
   gap: 20px;
   justify-items: center;
 }
+@media (max-width: 768px) {
+  .card {
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+  }
+
+  .card-content {
+    gap: 16px;
+  }
+}

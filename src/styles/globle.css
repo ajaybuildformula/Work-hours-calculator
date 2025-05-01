@@ -2,9 +2,10 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-image: url("../assets/background.jpg");
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -81,4 +82,39 @@ body {
 .round-button.delete {
   background: #dc2626;
   color: white;
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .label,
+  .label-intime {
+    font-size: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-wrapper {
+    padding: 20px;
+    gap: 24px;
+  }
+
+  .break-input-pair {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .round-button {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .result {
+    font-size: 16px;
+    margin-top: 10px;
+  }
 }
