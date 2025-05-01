@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Input } from "../components/ui/Input";
 import { Button } from "../components/ui/Button";
 import { Card, CardContent } from "../components/ui/Card";
@@ -28,10 +28,18 @@ export default function Home() {
 
   const validate = () => {
     const newErrors = {};
-    if (!inTime) newErrors.inTime = "Required";
+
+    if (!inTime) newErrors.inTime = "In Time is required";
+
     breaks.forEach((b, i) => {
-      if (!b.start || !b.end) newErrors[`break${i}`] = "Required";
+      if (!b.start) {
+        newErrors[`break${i}_start`] = `Required`;
+      }
+      if (!b.end) {
+        newErrors[`break${i}_end`] = `Required`;
+      }
     });
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -61,29 +69,6 @@ export default function Home() {
     const displayHours = hours % 12 || 12;
 
     setResult(`You can leave at ${displayHours}:${minutes} ${period}`);
-  };
-  const cardRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    const card = cardRef.current;
-    const rect = card.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / centerY) * 10; // max 10deg
-    const rotateY = ((x - centerX) / centerX) * -10;
-
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  };
-
-  const resetTransform = () => {
-    if (cardRef.current) {
-      cardRef.current.style.transform = "rotateX(0deg) rotateY(0deg)";
-    }
   };
 
   return (
@@ -164,12 +149,8 @@ export default function Home() {
           </clipPath>
         </defs>
       </svg>
-      <Card
-        className="parallax-card"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={resetTransform}
-      >
-        <CardContent className="card-content" ref={cardRef}>
+      <Card className="parallax-card">
+        <CardContent className="card-content">
           <h2 className="title">Work Hours Calculator</h2>
           <label className="label-intime">
             In Time <span className="asterisk">*</span>
@@ -194,7 +175,7 @@ export default function Home() {
                     onChange={(e) =>
                       handleBreakChange(i, "start", e.target.value)
                     }
-                    error={errors[`break${i}`]}
+                    error={errors[`break${i}_start`]}
                   />
                 </div>
                 <div style={{ flex: 1 }}>
@@ -207,7 +188,7 @@ export default function Home() {
                     onChange={(e) =>
                       handleBreakChange(i, "end", e.target.value)
                     }
-                    error={errors[`break${i}`]}
+                    error={errors[`break${i}_end`]}
                   />
                 </div>
                 {i === 0 ? (
