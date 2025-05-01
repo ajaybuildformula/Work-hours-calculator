@@ -153,7 +153,7 @@ export default function Home() {
         <CardContent className="card-content">
           <h2 className="title">Work Hours Calculator</h2>
           <label className="label-intime">
-            In Time <span className="asterisk">*</span>
+            Morning Check In Time <span className="asterisk">*</span>
           </label>
           <Input
             type="time"

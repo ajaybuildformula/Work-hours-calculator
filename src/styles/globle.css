@@ -25,7 +25,7 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 .label-intime {
   font-size: 16px;
@@ -33,6 +33,8 @@ body {
   color: white;
   display: flex;
   align-items: center;
+  margin-bottom: -10px;
+  gap: 4px;
 }
 .asterisk {
   color: #dc2626;
@@ -92,18 +94,18 @@ body {
   .label,
   .label-intime {
     font-size: 14px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
+    /* margin-bottom: -8px; */
   }
 
   .home-wrapper {
-    padding: 20px;
     gap: 24px;
   }
 
   .break-input-pair {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: flex;
+    /* align-items: stretch; */
     gap: 8px;
   }
 
@@ -111,10 +113,20 @@ body {
     width: 28px;
     height: 28px;
     font-size: 16px;
+    margin-bottom: 6px;
   }
 
   .result {
     font-size: 16px;
     margin-top: 10px;
+  }
+  .label-intime {
+    margin-bottom: -8px;
+  }
+  .label {
+    font-size: 14px;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 8px;
   }
 }
