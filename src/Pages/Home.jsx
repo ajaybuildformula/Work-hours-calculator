@@ -60,7 +60,7 @@ export default function Home() {
       return total + Math.max(0, end - start);
     }, 0);
 
-    const totalMinutes = 510 + breakMinutes;
+    const totalMinutes = 570 + breakMinutes;
     const endMinutes = inMinutes + totalMinutes;
 
     const hours = Math.floor(endMinutes / 60) % 24;
