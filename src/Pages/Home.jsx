@@ -60,16 +60,21 @@ export default function Home() {
       return total + Math.max(0, end - start);
     }, 0);
 
-    const totalMinutes = 570 + breakMinutes;
-    const endMinutes = inMinutes + totalMinutes;
+    const calculateEndTime = () => {
+  if (!validate()) return;
 
-    const hours = Math.floor(endMinutes / 60) % 24;
-    const minutes = (endMinutes % 60).toString().padStart(2, "0");
-    const period = hours >= 12 ? "PM" : "AM";
-    const displayHours = hours % 12 || 12;
+  const inMinutes = parseTimeToMinutes(inTime);
 
-    setResult(`You can leave at ${displayHours}:${minutes} ${period}`);
-  };
+  const FIXED_WORK_MINUTES = 615; // 10h 15m including breaks
+  const endMinutes = inMinutes + FIXED_WORK_MINUTES;
+
+  const hours = Math.floor(endMinutes / 60) % 24;
+  const minutes = (endMinutes % 60).toString().padStart(2, "0");
+  const period = hours >= 12 ? "PM" : "AM";
+  const displayHours = hours % 12 || 12;
+
+  setResult(`You can leave at ${displayHours}:${minutes} ${period}`);
+};
 
   return (
     <div className="home-wrapper">
